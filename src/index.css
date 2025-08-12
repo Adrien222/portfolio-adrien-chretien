@@ -1,0 +1,197 @@
+/* Importation des couches Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importation des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+
+/* Configuration de base pour correspondre à votre design */
+@layer base {
+  /* Configuration du body avec votre dégradé de fond principal */
+  body {
+    @apply bg-main-bg bg-fixed font-inter text-portfolio-text-primary;
+    /* Le bg-fixed permet de garder le dégradé fixe pendant le scroll */
+  }
+  
+  /* Configuration de la typographie de base */
+  h1 {
+    @apply font-jost text-hero-title text-portfolio-text-primary;
+  }
+  
+  h2 {
+    @apply font-jost text-section-title text-portfolio-text-primary;
+  }
+  
+  h3 {
+    @apply font-jost text-card-title text-portfolio-text-primary;
+  }
+  
+  p {
+    @apply font-inter text-body-large text-portfolio-text-secondary;
+  }
+  
+  /* Configuration pour un scroll fluide */
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+/* Composants personnalisés pour votre portfolio */
+@layer components {
+  /* Bouton principal avec votre dégradé "Me contacter" */
+  .btn-primary {
+    @apply bg-btn-primary text-portfolio-text-primary font-inter font-medium;
+    @apply px-8 py-4 rounded-none transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-lg;
+    /* Ajout d'une ombre subtile au hover pour améliorer l'UX */
+    @apply hover:shadow-portfolio-purple/30;
+  }
+  
+  /* Bouton "En savoir plus" avec bordure dégradée */
+  .btn-outline {
+    @apply relative bg-transparent text-portfolio-text-primary font-inter font-medium;
+    @apply px-8 py-4 rounded-none transition-all duration-300;
+    @apply hover:scale-105;
+    /* La bordure dégradée sera créée avec un pseudo-élément */
+  }
+  
+  .btn-outline::before {
+    @apply absolute inset-0 bg-btn-outline rounded-none;
+    @apply p-[2px]; /* Épaisseur de la bordure */
+    content: '';
+    /* Technique pour créer une bordure dégradée */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+  
+  /* Carte de compétence avec votre design spécifique */
+  .skill-card {
+    @apply w-skill-card h-skill-card bg-skill-card;
+    @apply relative overflow-hidden transition-all duration-500;
+    /* Application du coin coupé comme dans votre Figma */
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+    /* Bordure dégradée via box-shadow pour correspondre à votre design */
+    box-shadow: inset 0 0 0 1px transparent;
+    background: linear-gradient(to bottom, #BD5EDA 50%, #2C1438 100%), 
+                linear-gradient(to bottom, #BD5EDA 50%, #000000 50%);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  }
+  
+  /* État hover de la carte de compétence avec animation de retournement */
+  .skill-card:hover {
+    @apply animate-card-flip;
+  }
+  
+  /* Face arrière de la carte de compétence */
+  .skill-card-back {
+    @apply absolute inset-0 bg-portfolio-section-bg p-card-padding;
+    @apply flex flex-col justify-center items-center text-center;
+    @apply opacity-0 transform rotateY-180 transition-all duration-500;
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+  }
+  
+  .skill-card:hover .skill-card-back {
+    @apply opacity-100 transform rotateY-0;
+  }
+  
+  .skill-card:hover .skill-card-front {
+    @apply opacity-0 transform rotateY-180;
+  }
+  
+  /* Carte de projet avec votre style noir */
+  .project-card {
+    @apply bg-portfolio-card-bg border border-portfolio-border;
+    @apply transition-all duration-300 hover:animate-card-hover;
+    /* Application du même coin coupé */
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+    /* Ajout d'une ombre subtile au hover pour améliorer l'UX */
+    @apply hover:shadow-lg hover:shadow-portfolio-purple/20;
+  }
+  
+  /* Section "Mon approche" avec votre fond spécifique */
+  .section-approach {
+    @apply bg-portfolio-section-bg border-[3px] border-portfolio-border;
+    /* Application du coin coupé comme dans votre design */
+    clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
+  }
+  
+  /* Champs de formulaire avec votre style et bordure dégradée */
+  .form-field {
+    @apply w-form-field h-form-field bg-portfolio-card-bg;
+    @apply text-portfolio-text-primary font-inter text-body-large;
+    @apply px-6 py-4 rounded-none transition-all duration-300;
+    /* Bordure dégradée en utilisant votre spécification */
+    border: 1px solid transparent;
+    background: linear-gradient(#000000, #000000) padding-box,
+                linear-gradient(to bottom, #BD5EDA 74%, #000000 100%) border-box;
+  }
+  
+  .form-field:focus {
+    @apply outline-none;
+    /* Intensification de la bordure dégradée au focus */
+    box-shadow: 0 0 0 2px rgba(189, 94, 218, 0.3);
+  }
+  
+  /* Textarea spécifique pour le message */
+  .form-textarea {
+    @apply h-form-textarea resize-none;
+  }
+  
+  /* Classe utilitaire pour le texte en gras dans "Mon approche" */
+  .text-approach-bold {
+    @apply font-bold text-portfolio-text-secondary;
+  }
+}
+
+/* Utilitaires personnalisés */
+@layer utilities {
+  /* Largeur maximale de votre contenu principal */
+  .container-portfolio {
+    @apply max-w-content-max mx-auto px-8;
+  }
+  
+  /* Espacement entre les sections */
+  .section-spacing {
+    @apply py-section-gap;
+  }
+  
+  /* Grille pour vos cartes de compétences avec l'espacement correct */
+  .skills-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4;
+    gap: 106px; /* Votre espacement spécifique de Figma */
+  }
+  
+  /* Classes pour les animations d'apparition */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Styles spécifiques pour les effets visuels avancés */
+@layer utilities {
+  /* Effet de perspective pour l'animation de retournement des cartes */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  /* Classes pour les transformations 3D */
+  .rotateY-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .rotateY-0 {
+    transform: rotateY(0deg);
+  }
+  
+  /* Style pour préserver la 3D lors des animations */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
