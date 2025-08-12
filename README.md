@@ -59,7 +59,7 @@ npm install
 npm run dev
 npm run build    # Build de production
 npm run preview  # Aperçu du build de production
-
+```
 
 ### Extensions Visual Studio Code recommandées
 Installez ces extensions pour optimiser votre développement :
