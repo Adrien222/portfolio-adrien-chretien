@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { personalInfo } from './data/portfolioData';
+import { useScrollReveal } from './hooks/useScrollReveal'; // Import du hook
 
 // Import du composant Header recomposé
 import Header from './components/Header';
@@ -19,12 +20,15 @@ function App() {
     activeSection: 'home'
   }));
 
+  // Hook personnalisé pour l'effet de dévoilement
+  // Paramètres : (pourcentage de dévoilement, easing doux)
+  const overlayOpacity = useScrollReveal(100, true);
+
   // Handler principal pour le changement de section
-  // Immutable state update pattern
   const handleSectionChange = useCallback((newSection) => {
     setAppState(prevState => ({
-      ...prevState, // Copie l'état précédent
-      activeSection: newSection // Met à jour seulement ce qui change
+      ...prevState,
+      activeSection: newSection
     }));
   }, []);
 
@@ -35,18 +39,17 @@ function App() {
       activeSection: 'contact'
     }));
     
-    // Logique future : scroll vers section contact
     console.log('Contact clicked - Future: scroll to contact section');
   }, []);
 
-  // Mémoisation des props du Header pour éviter les re-renders
+  // Mémoisation des props du Header
   const headerProps = useMemo(() => ({
     activeSection: appState.activeSection,
     onSectionChange: handleSectionChange,
     onContactClick: handleContactClick
   }), [appState.activeSection, handleSectionChange, handleContactClick]);
 
-  // Mémoisation du contenu hero pour correspondre à la maquette
+  // Mémoisation du contenu hero
   const heroContent = useMemo(() => ({
     title: personalInfo.name,
     subtitle: personalInfo.title,
@@ -54,55 +57,64 @@ function App() {
   }), []);
 
   return (
-    <div className="min-h-screen bg-main-bg">
+    <div className="min-h-screen">
       
-      {/* Header - Composant composé avec props immutables */}
-      <Header {...headerProps} />
+      {/* Overlay dynamique - opacité gérée par le hook */}
+      <div 
+        className="background-overlay"
+        style={{ opacity: overlayOpacity }}
+      />
       
-      <main className="pt-20">
+      {/* Contenu principal */}
+      <div className="main-content">
         
-        {/* Section Hero - Tailles ajustées pour correspondre à la maquette */}
-        <section className="flex items-center justify-center min-h-screen container-portfolio">
-          <div className="text-center">
-            
-            {/* Titre principal - Réduit pour correspondre à la maquette */}
-            <h1 className="mb-6 text-6xl font-bold lg:text-7xl font-jost text-portfolio-text-primary">
-              {heroContent.title}
-            </h1>
-            
-            {/* Sous-titre - Taille réduite */}
-            <p className="mb-4 text-3xl lg:text-4xl font-inter text-portfolio-text-secondary">
-              {heroContent.subtitle}
-            </p>
-            
-            {/* Description - Taille ajustée */}
-            <p className="text-xl lg:text-2xl font-inter text-portfolio-text-secondary">
-              {heroContent.description}
-            </p>
-            
-          </div>
-        </section>
+        <Header {...headerProps} />
         
-        {/* Sections placeholder - Tailles ajustées */}
-        <SectionPlaceholder 
-          id="approche" 
-          title="Mon approche"
-          isActive={appState.activeSection === 'approche'}
-        />
+        <main className="pt-20">
+          
+          <section className="flex items-center justify-center min-h-screen container-portfolio">
+            <div className="text-center">
+              
+            {/* Titre principal*/}
+              <h1 className="mb-6 text-6xl font-bold lg:text-7xl font-jost text-portfolio-text-primary">
+                {heroContent.title}
+              </h1>
+              
+            {/* Sous-titre*/}
+              <p className="mb-4 text-3xl lg:text-4xl font-inter text-portfolio-text-secondary">
+                {heroContent.subtitle}
+              </p>
+              
+            {/* Description */}
+              <p className="text-xl lg:text-2xl font-inter text-portfolio-text-secondary">
+                {heroContent.description}
+              </p>
+              
+            </div>
+          </section>
+          
+        {/* Sections placeholder */}
+          <SectionPlaceholder 
+            id="approche" 
+            title="Mon approche"
+            isActive={appState.activeSection === 'approche'}
+          />
+          
+          <SectionPlaceholder 
+            id="savoir-faire" 
+            title="Mon savoir-faire"
+            isActive={appState.activeSection === 'savoir-faire'}
+          />
+          
+          <SectionPlaceholder 
+            id="realisations" 
+            title="Mes Réalisations"
+            isActive={appState.activeSection === 'realisations'}
+          />
+          
+        </main>
         
-        <SectionPlaceholder 
-          id="savoir-faire" 
-          title="Mon savoir-faire"
-          isActive={appState.activeSection === 'savoir-faire'}
-        />
-        
-        <SectionPlaceholder 
-          id="realisations" 
-          title="Mes Réalisations"
-          isActive={appState.activeSection === 'realisations'}
-        />
-        
-      </main>
+      </div>
     </div>
   );
 }

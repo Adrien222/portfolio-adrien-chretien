@@ -9,13 +9,18 @@
 
 /* Configuration de base pour correspondre à votre design */
 @layer base {
-  /* Configuration du body avec votre dégradé de fond principal */
+  /* Configuration du body avec mon image de fond SANS overlay initial */
   body {
     font-family: 'Inter', sans-serif;
     color: #FFFFFF;
-    background: linear-gradient(135deg, #000000 0%, #2C1438 82%, #000000 100%);
+    /* Image de fond pure - l'overlay sera géré par JavaScript */
+    background: url('./assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
+    position: relative;
   }
   
   /* Configuration de la typographie de base - TAILLES AJUSTÉES */
@@ -56,6 +61,25 @@
 
 /* Composants personnalisés pour votre portfolio */
 @layer components {
+  /* Overlay dynamique qui se révèle au scroll */
+  .background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(44,20,56,0.7) 82%, rgba(0,0,0,0.9) 100%);
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.1s ease-out;
+  }
+  
+  /* Container principal avec z-index pour être au-dessus de l'overlay */
+  .main-content {
+    position: relative;
+    z-index: 2;
+  }
+
   /* Header flottant avec votre design exact */
   .header-floating {
     position: fixed;
