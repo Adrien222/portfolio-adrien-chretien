@@ -1,187 +1,342 @@
+/* Importation des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+
 /* Importation des couches Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Importation des polices Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
-
 /* Configuration de base pour correspondre à votre design */
 @layer base {
   /* Configuration du body avec votre dégradé de fond principal */
   body {
-    @apply bg-main-bg bg-fixed font-inter text-portfolio-text-primary;
-    /* Le bg-fixed permet de garder le dégradé fixe pendant le scroll */
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #000000 0%, #2C1438 82%, #000000 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
   
-  /* Configuration de la typographie de base */
+  /* Configuration de la typographie de base - TAILLES AJUSTÉES */
   h1 {
-    @apply font-jost text-hero-title text-portfolio-text-primary;
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    color: #FFFFFF;
+    /* Tailles réduites pour correspondre à la maquette */
   }
   
   h2 {
-    @apply font-jost text-section-title text-portfolio-text-primary;
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    color: #FFFFFF;
+    /* Tailles réduites pour correspondre à la maquette */
   }
   
   h3 {
-    @apply font-jost text-card-title text-portfolio-text-primary;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px; /* Réduit de 24px à 20px */
+    line-height: 1.3;
+    font-weight: 600;
+    color: #FFFFFF;
   }
   
   p {
-    @apply font-inter text-body-large text-portfolio-text-secondary;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #D2D2D2;
+    /* Tailles variables selon le contexte */
   }
   
   /* Configuration pour un scroll fluide */
   html {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
   }
 }
 
 /* Composants personnalisés pour votre portfolio */
 @layer components {
-  /* Bouton principal avec votre dégradé "Me contacter" */
+  /* Header flottant avec votre design exact */
+  .header-floating {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    width: auto;
+    min-width: 800px;
+    max-width: 90vw;
+  }
+  
+  /* Container du header avec dégradé et styles */
+  .header-container {
+    padding: 0.75rem 2rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(90deg, #14061E 0%, #581A84 100%);
+    opacity: 0.75;
+    border-radius: 30px;
+    border: 1px solid rgba(189, 94, 218, 0.2);
+  }
+  
+  /* Navigation desktop */
+  .header-nav {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .header-nav {
+      display: flex;
+    }
+  }
+  
+  /* Liens de navigation */
+  .nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #BD5EDA;
+  }
+  
+  .nav-link--active {
+    color: #BD5EDA;
+  }
+  
+  /* Indicateur de section active */
+  .nav-indicator {
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #BD5EDA;
+    border-radius: 1px;
+  }
+  
+  /* Menu mobile */
+  .header-mobile-menu {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background: linear-gradient(90deg, #14061E 0%, #581A84 100%);
+    opacity: 0.45;
+    border-radius: 20px;
+    border: 1px solid rgba(189, 94, 218, 0.2);
+  }
+  
+  /* Responsive pour header flottant */
+  @media (max-width: 768px) {
+    .header-floating {
+      min-width: 95vw;
+    }
+  }
+
+  /* Bouton principal avec votre dégradé "Me contacter" - AJUSTÉ pour maquette */
   .btn-primary {
-    @apply bg-btn-primary text-portfolio-text-primary font-inter font-medium;
-    @apply px-8 py-4 rounded-none transition-all duration-300;
-    @apply hover:scale-105 hover:shadow-lg;
-    /* Ajout d'une ombre subtile au hover pour améliorer l'UX */
-    @apply hover:shadow-portfolio-purple/30;
+    background: linear-gradient(to right, #603770, #BD5EDA);
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(189, 94, 218, 0.4);
   }
   
   /* Bouton "En savoir plus" avec bordure dégradée */
   .btn-outline {
-    @apply relative bg-transparent text-portfolio-text-primary font-inter font-medium;
-    @apply px-8 py-4 rounded-none transition-all duration-300;
-    @apply hover:scale-105;
-    /* La bordure dégradée sera créée avec un pseudo-élément */
+    position: relative;
+    background: transparent;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border: 2px solid transparent;
+    background: linear-gradient(#000000, #000000) padding-box,
+                linear-gradient(to bottom, #BD5EDA, #F5F5ED) border-box;
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
   
-  .btn-outline::before {
-    @apply absolute inset-0 bg-btn-outline rounded-none;
-    @apply p-[2px]; /* Épaisseur de la bordure */
-    content: '';
-    /* Technique pour créer une bordure dégradée */
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
+  .btn-outline:hover {
+    transform: scale(1.05);
   }
   
   /* Carte de compétence avec votre design spécifique */
   .skill-card {
-    @apply w-skill-card h-skill-card bg-skill-card;
-    @apply relative overflow-hidden transition-all duration-500;
-    /* Application du coin coupé comme dans votre Figma */
+    width: 301px;
+    height: 193px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    background: linear-gradient(to bottom, #BD5EDA 50%, #2C1438 100%);
     clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
-    /* Bordure dégradée via box-shadow pour correspondre à votre design */
-    box-shadow: inset 0 0 0 1px transparent;
-    background: linear-gradient(to bottom, #BD5EDA 50%, #2C1438 100%), 
-                linear-gradient(to bottom, #BD5EDA 50%, #000000 50%);
-    background-clip: padding-box, border-box;
-    background-origin: padding-box, border-box;
+    border: 1px solid transparent;
+    background-clip: padding-box;
   }
   
-  /* État hover de la carte de compétence avec animation de retournement */
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #BD5EDA 50%, #000000 50%);
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+    z-index: -1;
+  }
+  
+  /* États hover de la carte de compétence */
   .skill-card:hover {
-    @apply animate-card-flip;
+    animation: cardFlip 0.6s ease-in-out;
   }
   
   /* Face arrière de la carte de compétence */
   .skill-card-back {
-    @apply absolute inset-0 bg-portfolio-section-bg p-card-padding;
-    @apply flex flex-col justify-center items-center text-center;
-    @apply opacity-0 transform rotateY-180 transition-all duration-500;
+    position: absolute;
+    inset: 0;
+    padding: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+    background: #2C1438;
     clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+    transform: rotateY(180deg);
   }
   
   .skill-card:hover .skill-card-back {
-    @apply opacity-100 transform rotateY-0;
+    opacity: 1;
+    transform: rotateY(0deg);
   }
   
   .skill-card:hover .skill-card-front {
-    @apply opacity-0 transform rotateY-180;
+    opacity: 0;
+    transform: rotateY(180deg);
   }
   
-  /* Carte de projet avec votre style noir */
+  /* Carte de projet */
   .project-card {
-    @apply bg-portfolio-card-bg border border-portfolio-border;
-    @apply transition-all duration-300 hover:animate-card-hover;
-    /* Application du même coin coupé */
+    background: #000000;
+    border: 1px solid #000000;
+    transition: all 0.3s ease;
     clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
-    /* Ajout d'une ombre subtile au hover pour améliorer l'UX */
-    @apply hover:shadow-lg hover:shadow-portfolio-purple/20;
   }
   
-  /* Section "Mon approche" avec votre fond spécifique */
+  .project-card:hover {
+    animation: cardHover 0.3s ease-out;
+    box-shadow: 0 10px 25px rgba(189, 94, 218, 0.2);
+  }
+  
+  /* Section "Mon approche" */
   .section-approach {
-    @apply bg-portfolio-section-bg border-[3px] border-portfolio-border;
-    /* Application du coin coupé comme dans votre design */
+    background: #2C1438;
+    border: 3px solid #000000;
     clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
   }
   
-  /* Champs de formulaire avec votre style et bordure dégradée */
+  /* Champs de formulaire */
   .form-field {
-    @apply w-form-field h-form-field bg-portfolio-card-bg;
-    @apply text-portfolio-text-primary font-inter text-body-large;
-    @apply px-6 py-4 rounded-none transition-all duration-300;
-    /* Bordure dégradée en utilisant votre spécification */
+    width: 618px;
+    height: 116px;
+    background: #000000;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    padding: 1.5rem;
     border: 1px solid transparent;
     background: linear-gradient(#000000, #000000) padding-box,
                 linear-gradient(to bottom, #BD5EDA 74%, #000000 100%) border-box;
+    transition: all 0.3s ease;
   }
   
   .form-field:focus {
-    @apply outline-none;
-    /* Intensification de la bordure dégradée au focus */
+    outline: none;
     box-shadow: 0 0 0 2px rgba(189, 94, 218, 0.3);
   }
   
-  /* Textarea spécifique pour le message */
   .form-textarea {
-    @apply h-form-textarea resize-none;
+    height: 198px;
+    resize: none;
   }
   
-  /* Classe utilitaire pour le texte en gras dans "Mon approche" */
+  /* Classe pour texte en gras */
   .text-approach-bold {
-    @apply font-bold text-portfolio-text-secondary;
+    font-weight: bold;
+    color: #D2D2D2;
   }
 }
 
 /* Utilitaires personnalisés */
 @layer utilities {
-  /* Largeur maximale de votre contenu principal */
+  /* Conteneur principal - AJUSTÉ pour correspondre à la maquette */
   .container-portfolio {
-    @apply max-w-content-max mx-auto px-8;
+    max-width: 1400px; /* Réduit de 1754px à 1400px */
+    margin: 0 auto;
+    padding-left: 1.5rem; /* Réduit de 2rem à 1.5rem */
+    padding-right: 1.5rem;
   }
   
-  /* Espacement entre les sections */
+  /* Espacement des sections - RÉDUIT */
   .section-spacing {
-    @apply py-section-gap;
+    padding-top: 60px; /* Réduit de 80px à 60px */
+    padding-bottom: 60px;
   }
   
-  /* Grille pour vos cartes de compétences avec l'espacement correct */
+  /* Grille des compétences - ESPACEMENT AJUSTÉ */
   .skills-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4;
-    gap: 106px; /* Votre espacement spécifique de Figma */
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 80px; /* Réduit de 106px à 80px */
   }
   
-  /* Classes pour les animations d'apparition */
+  @media (min-width: 768px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px; /* Réduit pour tablet */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .skills-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 80px; /* Espacement final pour desktop */
+    }
+  }
+  
+  /* Animations d'apparition */
   .animate-on-scroll {
-    @apply opacity-0 translate-y-8 transition-all duration-700;
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 0.7s ease;
   }
   
   .animate-on-scroll.in-view {
-    @apply opacity-100 translate-y-0;
+    opacity: 1;
+    transform: translateY(0);
   }
-}
-
-/* Styles spécifiques pour les effets visuels avancés */
-@layer utilities {
-  /* Effet de perspective pour l'animation de retournement des cartes */
+  
+  /* Perspective 3D */
   .perspective-1000 {
     perspective: 1000px;
   }
   
-  /* Classes pour les transformations 3D */
+  /* Transformations 3D */
   .rotateY-180 {
     transform: rotateY(180deg);
   }
@@ -190,8 +345,30 @@
     transform: rotateY(0deg);
   }
   
-  /* Style pour préserver la 3D lors des animations */
   .preserve-3d {
     transform-style: preserve-3d;
+  }
+}
+
+/* Définition des keyframes pour vos animations */
+@keyframes cardFlip {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(-90deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+@keyframes cardHover {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.02); }
+}
+
+@keyframes fadeInUp {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
   }
 }
