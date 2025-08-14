@@ -1,47 +1,56 @@
 import React, { memo } from 'react';
 
 /**
- * Button - Composant atomique pur pour tous les boutons
- * Props immutables, rendu prévisible
+ * Button - Composant bouton réutilisable
+ * Variantes : primary (Me contacter), outline (En savoir plus)
+ * Tailles : small, medium, large
  */
 const Button = memo(({ 
-  children, 
-  onClick, 
-  variant = 'primary', 
+  children,
+  variant = 'primary',
   size = 'medium',
-  className = '',
+  onClick,
   disabled = false,
-  style = {},
-  ...props 
+  className = '',
+  type = 'button',
+  ...props
 }) => {
   
-  // Classes de base selon la variante
-  const baseClasses = {
+  // Classes de base communes
+  const baseClasses = 'font-inter font-medium transition-all duration-300 cursor-pointer inline-flex items-center justify-center';
+  
+  // Classes selon la variante (utilise les styles CSS définis)
+  const variantClasses = {
     primary: 'btn-primary',
-    outline: 'btn-outline',
-    ghost: 'text-portfolio-text-primary hover:text-portfolio-purple transition-colors duration-300'
+    outline: 'btn-outline'
   };
-
-  // Classes de taille
+  
+  // Classes selon la taille
   const sizeClasses = {
-    small: 'text-base px-5 py-2',
-    medium: 'text-lg px-6 py-3',   
-    large: 'text-xl px-8 py-4'
+    small: 'px-4 py-2 text-sm',
+    medium: 'px-6 py-3 text-base', 
+    large: 'px-8 py-4 text-lg'
   };
+  
+  // Classes pour l'état disabled
+  const disabledClasses = disabled 
+    ? 'opacity-50 cursor-not-allowed' 
+    : '';
 
-  const buttonClasses = `
-    ${baseClasses[variant] || baseClasses.primary}
-    ${sizeClasses[size] || sizeClasses.medium}
-    ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+  const combinedClasses = `
+    ${baseClasses}
+    ${variantClasses[variant]}
+    ${sizeClasses[size]}
+    ${disabledClasses}
     ${className}
   `.trim();
 
   return (
     <button
-      className={buttonClasses}
+      type={type}
+      className={combinedClasses}
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
-      style={style}
       {...props}
     >
       {children}

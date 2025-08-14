@@ -28,19 +28,17 @@
     font-family: 'Jost', sans-serif;
     font-weight: 700;
     color: #FFFFFF;
-    /* Tailles réduites pour correspondre à la maquette */
   }
   
   h2 {
     font-family: 'Jost', sans-serif;
     font-weight: 700;
     color: #FFFFFF;
-    /* Tailles réduites pour correspondre à la maquette */
   }
   
   h3 {
     font-family: 'Jost', sans-serif;
-    font-size: 20px; /* Réduit de 24px à 20px */
+    font-size: 20px;
     line-height: 1.3;
     font-weight: 600;
     color: #FFFFFF;
@@ -50,7 +48,6 @@
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     color: #D2D2D2;
-    /* Tailles variables selon le contexte */
   }
   
   /* Configuration pour un scroll fluide */
@@ -79,6 +76,193 @@
     position: relative;
     z-index: 2;
   }
+
+  /* ========================================
+     SECTION HERO - SELON MAQUETTE FIGMA
+     ======================================== */
+  
+  /* Section hero - hauteur contrôlée */
+  .hero-section {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Container principal de la section hero - layout selon maquette */
+  .hero-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem 2rem;
+    min-height: calc(100vh - 120px);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container de l'image de profil */
+  .hero-image-container {
+    flex-shrink: 0;
+    position: relative;
+  }
+  
+  /* Image de profil selon les dimensions exactes de la maquette */
+  .hero-profile-image {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+    border: 10px solid transparent;
+    background: linear-gradient(#000000, #000000) padding-box,
+                linear-gradient(to bottom, #2C1438 0%, #666666 100%) border-box;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+  
+  .hero-profile-image:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Contenu textuel - aligné avec la maquette */
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.5rem;
+  }
+  
+  /* Titre principal (nom) */
+  .hero-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  /* Sous-titre (spécialité) */
+  .hero-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #BD5EDA;
+    line-height: 1.3;
+    margin: 0 0 1rem 0;
+    font-style: italic;
+  }
+  
+  /* Description */
+  .hero-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #D2D2D2;
+    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+    max-width: 450px;
+  }
+  
+  /* Container du bouton CTA */
+  .hero-cta {
+    margin-top: 0.5rem;
+  }
+  
+  /* Bouton hero - style maquette */
+  .hero-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+  }
+  
+  /* Responsive design pour Hero */
+  @media (max-width: 1024px) {
+    .hero-container {
+      gap: 2rem;
+      max-width: 900px;
+    }
+    
+    .hero-profile-image {
+      width: 240px;
+      height: 240px;
+    }
+    
+    .hero-title {
+      font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.375rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+      padding: 8rem 1.5rem 2rem 1.5rem; /* Plus de padding-top sur mobile */
+      align-items: center;
+    }
+    
+    .hero-profile-image {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+    
+    .hero-content {
+      max-width: none;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
+    
+    .hero-description {
+      font-size: 1rem;
+      max-width: 400px;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+    
+    .hero-profile-image {
+      width: 180px;
+      height: 180px;
+    }
+    
+    .hero-description {
+      max-width: 300px;
+    }
+  }
+
+  /* ========================================
+     HEADER ET NAVIGATION
+     ======================================== */
 
   /* Header flottant avec votre design exact */
   .header-floating {
@@ -164,7 +348,11 @@
     }
   }
 
-  /* Bouton principal avec votre dégradé "Me contacter" - AJUSTÉ pour maquette */
+  /* ========================================
+     BOUTONS
+     ======================================== */
+
+  /* Bouton principal avec votre dégradé "Me contacter" */
   .btn-primary {
     background: linear-gradient(to right, #603770, #BD5EDA);
     color: #FFFFFF;
@@ -181,24 +369,104 @@
     box-shadow: 0 8px 20px rgba(189, 94, 218, 0.4);
   }
   
-  /* Bouton "En savoir plus" avec bordure dégradée */
+  /* Bouton CTA moderne et engageant */
   .btn-outline {
     position: relative;
-    background: transparent;
+    background: linear-gradient(135deg, #BD5EDA 0%, #9333EA 50%, #7C3AED 100%);
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    padding: 1rem 2rem;
-    border: 2px solid transparent;
-    background: linear-gradient(#000000, #000000) padding-box,
-                linear-gradient(to bottom, #BD5EDA, #F5F5ED) border-box;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px rgba(189, 94, 218, 0.3);
+    overflow: hidden;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    animation: pulse-glow 3s ease-in-out infinite;
   }
   
-  .btn-outline:hover {
-    transform: scale(1.05);
+  /* Animation de pulse subtile */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 8px 25px rgba(189, 94, 218, 0.3);
+    }
+    50% {
+      box-shadow: 0 8px 35px rgba(189, 94, 218, 1);
+    }
   }
+  
+  /* Effet de shine qui traverse le bouton */
+  .btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+  
+  /* Flèche animée à droite */
+  .btn-outline::after {
+    content: '→';
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Effets hover */
+  .btn-outline:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(189, 94, 218, 0.4);
+    background: linear-gradient(135deg, #C855F0 0%, #A855F7 50%, #8B5CF6 100%);
+  }
+  
+  .btn-outline:hover::before {
+    left: 100%;
+  }
+  
+  .btn-outline:hover::after {
+    transform: translateX(5px);
+  }
+  
+  /* Effet de click */
+  .btn-outline:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: all 0.1s ease;
+  }
+  
+  /* Animation d'apparition */
+  .btn-outline {
+    animation: fadeInUp 0.8s ease-out, pulse-glow 3s ease-in-out infinite;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ========================================
+     AUTRES COMPOSANTS (futures sections)
+     ======================================== */
   
   /* Carte de compétence avec votre design spécifique */
   .skill-card {
@@ -308,38 +576,38 @@
 
 /* Utilitaires personnalisés */
 @layer utilities {
-  /* Conteneur principal - AJUSTÉ pour correspondre à la maquette */
+  /* Conteneur principal */
   .container-portfolio {
-    max-width: 1400px; /* Réduit de 1754px à 1400px */
+    max-width: 1400px;
     margin: 0 auto;
-    padding-left: 1.5rem; /* Réduit de 2rem à 1.5rem */
+    padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
   
-  /* Espacement des sections - RÉDUIT */
+  /* Espacement des sections */
   .section-spacing {
-    padding-top: 60px; /* Réduit de 80px à 60px */
+    padding-top: 60px;
     padding-bottom: 60px;
   }
   
-  /* Grille des compétences - ESPACEMENT AJUSTÉ */
+  /* Grille des compétences */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 80px; /* Réduit de 106px à 80px */
+    gap: 80px;
   }
   
   @media (min-width: 768px) {
     .skills-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 60px; /* Réduit pour tablet */
+      gap: 60px;
     }
   }
   
   @media (min-width: 1024px) {
     .skills-grid {
       grid-template-columns: repeat(4, 1fr);
-      gap: 80px; /* Espacement final pour desktop */
+      gap: 80px;
     }
   }
   

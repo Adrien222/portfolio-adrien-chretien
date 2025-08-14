@@ -1,50 +1,49 @@
 import React, { memo } from 'react';
 
 /**
- * HamburgerButton - Composant atomique pur pour le menu mobile
- * État isOpen géré par le parent, rendu conditionnel pur
+ * HamburgerButton - Bouton menu mobile avec animation
  */
 const HamburgerButton = memo(({ 
-  isOpen = false, 
+  isOpen, 
   onClick,
   className = ''
 }) => {
-  
+
   return (
     <button
       onClick={onClick}
       className={`
-        md:hidden text-portfolio-text-primary hover:text-portfolio-purple 
-        transition-colors duration-300 p-2 cursor-pointer
+        md:hidden flex flex-col justify-center items-center
+        w-8 h-8 bg-transparent border-none cursor-pointer
+        transition-all duration-300
         ${className}
       `.trim()}
       aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
       aria-expanded={isOpen}
     >
-      <svg 
-        className="w-6 h-6" 
-        fill="none" 
-        stroke="currentColor" 
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        {/* Rendu conditionnel pur basé sur isOpen */}
-        {isOpen ? (
-          <path 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth={2} 
-            d="M6 18L18 6M6 6l12 12" 
-          />
-        ) : (
-          <path 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth={2} 
-            d="M4 6h16M4 12h16M4 18h16" 
-          />
-        )}
-      </svg>
+      {/* Ligne du haut */}
+      <span 
+        className={`
+          block w-6 h-0.5 bg-white transition-all duration-300
+          ${isOpen ? 'rotate-45 translate-y-1.5' : 'rotate-0 translate-y-0'}
+        `}
+      />
+      
+      {/* Ligne du milieu */}
+      <span 
+        className={`
+          block w-6 h-0.5 bg-white transition-all duration-300 my-1
+          ${isOpen ? 'opacity-0' : 'opacity-100'}
+        `}
+      />
+      
+      {/* Ligne du bas */}
+      <span 
+        className={`
+          block w-6 h-0.5 bg-white transition-all duration-300
+          ${isOpen ? '-rotate-45 -translate-y-1.5' : 'rotate-0 translate-y-0'}
+        `}
+      />
     </button>
   );
 });
