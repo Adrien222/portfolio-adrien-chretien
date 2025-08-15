@@ -20,9 +20,9 @@ const Logo = memo(({
 
   // Classes selon la taille
   const sizeClasses = {
-    small: 'text-lg',    // Nouvelle taille small pour la maquette
+    small: 'text-lg',   
     medium: 'text-xl',
-    large: 'text-2xl',   // Réduit de text-3xl à text-2xl
+    large: 'text-2xl',
     xlarge: 'text-3xl'
   };
 

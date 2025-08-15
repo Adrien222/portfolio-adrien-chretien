@@ -35,7 +35,7 @@ const NavigationLink = memo(({
       {children}
       {/* Indicateur visuel uniquement pour desktop */}
       {variant === 'desktop' && isActive && (
-        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-portfolio-purple nav-indicator" />
+        <span className="nav-indicator" />
       )}
     </a>
   );

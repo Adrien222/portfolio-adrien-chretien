@@ -76,6 +76,12 @@ export const skillsData = Object.freeze([
     name: 'Méthodes agiles',
     description: 'Livraisons itératives avec feedback client continu',
     category: 'methodology'
+  },
+  {
+  id: 'figma',
+  name: 'Figma',
+  description: 'Design d\'interfaces et prototypage pour des expériences utilisateur optimales',
+  category: 'tools'
   }
 ]);
 

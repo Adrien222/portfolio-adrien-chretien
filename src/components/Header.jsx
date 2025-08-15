@@ -86,7 +86,7 @@ const Header = memo(({ activeSection, onSectionChange, onContactClick }) => {
             isOpen={isMobileMenuOpen}
             onClick={toggleMobileMenu}
           />
-
+          
         </div>
       </div>
 

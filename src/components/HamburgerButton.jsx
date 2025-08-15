@@ -18,8 +18,6 @@ const HamburgerButton = memo(({
         transition-all duration-300
         ${className}
       `.trim()}
-      aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-      aria-expanded={isOpen}
     >
       {/* Ligne du haut */}
       <span 

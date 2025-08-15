@@ -32,12 +32,12 @@ const HeroSection = memo(({
   return (
     <section 
       id="home"
-      className={`flex items-center justify-center hero-section container-portfolio ${className}`}
+      className={`hero-section container-portfolio ${className}`}
     >
       <div className="hero-container">
         
         {/* Photo de profil avec bordure dégradée */}
-        <div className="hero-image-container">
+        <div>
           <img 
             src="/src/assets/pp.jpg"
             alt={`Photo de profil de ${personalInfo.name}`}
@@ -70,7 +70,6 @@ const HeroSection = memo(({
               variant="outline"
               size="medium"
               onClick={handleLearnMore}
-              className="hero-button"
             >
               En savoir plus
             </Button>
