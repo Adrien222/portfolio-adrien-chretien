@@ -209,14 +209,16 @@
     .hero-container {
       flex-direction: column;
       text-align: center;
-      gap: 2rem;
-      padding: 8rem 1.5rem 2rem 1.5rem; /* Plus de padding-top sur mobile */
+      gap: 1.5rem;
+      padding: 6rem 1.5rem 4rem 1.5rem; 
       align-items: center;
+      min-height: calc(100vh - 80px);
+      justify-content: center;
     }
     
     .hero-profile-image {
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
       margin: 0 auto;
     }
     
@@ -224,39 +226,52 @@
       max-width: none;
       align-items: center;
       text-align: center;
+      gap: 1rem;
     }
     
     .hero-title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
+      margin: 0 0 0.25rem 0;
     }
     
     .hero-subtitle {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
+      margin: 0 0 0.75rem 0;
     }
     
     .hero-description {
-      font-size: 1rem;
-      max-width: 400px;
+      font-size: 0.95rem;
+      max-width: 320px;
       text-align: center;
+      margin: 0 0 1rem 0;
+    }
+    
+    .hero-cta {
+      margin-top: 0.25rem;
     }
   }
   
   @media (max-width: 480px) {
+    .hero-container {
+      padding: 5rem 1rem 3rem 1rem;
+    }
+    
     .hero-title {
-      font-size: 2rem;
+      font-size: 1.95rem;
     }
     
     .hero-subtitle {
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
     
     .hero-profile-image {
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
     }
     
     .hero-description {
-      max-width: 300px;
+      max-width: 280px;
+      font-size: 0.9rem;
     }
   }
 
@@ -464,6 +479,93 @@
     }
   }
 
+  /* =======================
+     SECTION "MON APPROCHE" 
+     =======================*/
+
+  /* Section "Mon approche" avec design glassmorphism moderne */
+  .section-approach {
+    /* Fond glassmorphism avec dégradé subtil */
+    background: linear-gradient(
+      135deg, 
+      rgba(44, 20, 56, 0.85) 0%, 
+      rgba(96, 55, 112, 0.75) 50%, 
+      rgba(44, 20, 56, 0.85) 100%
+    );
+    
+    /* Bordure moderne avec dégradé */
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    
+    /* Clip-path harmonieux et responsive */
+    clip-path: polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%);
+    
+    /* Effet blur subtil */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Ombre douce */
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(189, 94, 218, 0.1);
+  }
+
+  /* Bordure dégradée avec pseudo-élément */
+  .section-approach::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(
+      135deg, 
+      rgba(189, 94, 218, 0.6) 0%, 
+      rgba(96, 55, 112, 0.3) 50%, 
+      rgba(189, 94, 218, 0.6) 100%
+    );
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    clip-path: polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%);
+    z-index: -1;
+  }
+
+  /* Effet hover subtil pour interactivité */
+  .section-approach:hover {
+    background: linear-gradient(
+      135deg, 
+      rgba(44, 20, 56, 0.9) 0%, 
+      rgba(96, 55, 112, 0.8) 50%, 
+      rgba(44, 20, 56, 0.9) 100%
+    );
+    transition: all 0.3s ease;
+  }
+
+  /* Responsive pour mobile */
+  @media (max-width: 768px) {
+    .section-approach {
+      /* Angle plus petit sur mobile */
+      clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+    }
+    
+    .section-approach::before {
+      clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+    }
+  }
+
+  /* Version pour très grands écrans */
+  @media (min-width: 1400px) {
+    .section-approach {
+      /* Angle légèrement plus grand pour les très grands écrans */
+      clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 80px, 100% 100%, 0 100%);
+    }
+    
+    .section-approach::before {
+      clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 80px, 100% 100%, 0 100%);
+    }
+  }
+
   /* ========================================
      AUTRES COMPOSANTS (futures sections)
      ======================================== */
@@ -533,13 +635,6 @@
   .project-card:hover {
     animation: cardHover 0.3s ease-out;
     box-shadow: 0 10px 25px rgba(189, 94, 218, 0.2);
-  }
-  
-  /* Section "Mon approche" */
-  .section-approach {
-    background: #2C1438;
-    border: 3px solid #000000;
-    clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
   }
   
   /* Champs de formulaire */

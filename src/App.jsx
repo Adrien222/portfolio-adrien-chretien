@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { personalInfo } from './data/portfolioData';
+import { personalInfo, approachData } from './data/portfolioData';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 // Import des composants
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
+import ApproachSection from './components/ApproachSection';
 
 /**
  * App - Composant racine avec hook useScrollReveal et vraies données
@@ -48,6 +49,12 @@ function App() {
       ...prevState,
       activeSection: 'approche'
     }));
+    
+    // Scroll smooth vers la section approche
+    document.getElementById('approche')?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
   }, []);
 
   // Mémoisation des props du Header pour éviter les re-renders
@@ -62,6 +69,12 @@ function App() {
     personalInfo,
     onLearnMoreClick: handleLearnMoreClick
   }), [handleLearnMoreClick]);
+
+  // Mémorisation des props de la section Approche
+  const approachProps = useMemo(() => ({
+    approachData,
+    isActive: appState.activeSection === 'approche'
+  }), [appState.activeSection]);
 
   return (
     <div className="min-h-screen">
@@ -83,13 +96,10 @@ function App() {
           {/* Section Hero avec photo et présentation */}
           <HeroSection {...heroProps} />
           
-          {/* Sections placeholder - À développer dans les prochaines étapes */}
-          <SectionPlaceholder 
-            id="approche" 
-            title="Mon approche"
-            isActive={appState.activeSection === 'approche'}
-          />
+          {/* Section Mon approche avec contenu réel */}
+          <ApproachSection {...approachProps} />
           
+          {/* Sections placeholder - À développer dans les prochaines étapes */}
           <SectionPlaceholder 
             id="savoir-faire" 
             title="Mon savoir-faire"
