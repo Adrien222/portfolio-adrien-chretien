@@ -52,15 +52,16 @@ const ApproachSection = React.memo(({ approachData, isActive }) => {
   }, []);
 
   return (
-    <section 
-      ref={sectionRef}
-      id="approche"
-      className={`
-        min-h-screen flex items-center
-        transform transition-all duration-700 ease-out
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-      `}
-    >
+      <section 
+        ref={sectionRef}
+        id="approche"
+        className={`
+          min-h-screen flex items-center
+          pt-20 md:pt-24 lg:pt-28
+          transform transition-all duration-700 ease-out
+          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+        `}
+      >
       {/* Container principal avec largeur max cohérente */}
       <div className="container-portfolio">
           
