@@ -97,7 +97,7 @@ export const projectsData = Object.freeze([
     technologies: ['Java EE', 'Vaadin 23', 'PostgreSQL', 'JPA', 'Maven', 'Hibernate'],
     duration: '3 ans',
     // Images pour le modal
-    images: ['/src/assets/java.png', '/src/assets/vaadin.png', '/src/assets/postgresql.png'],
+    images: ['/src/assets/medicam1.png'],
     details: {
       context: 'Mission stratégique au sein du premier GIP français dédié à la santé',
       achievements: [
@@ -118,7 +118,7 @@ export const projectsData = Object.freeze([
     detailedDescription: 'Création complète d\'une plateforme de gestion digitale pour Glisse Sensation, club de sports nautiques innovant. Projet mené en équipe de 4 personnes selon la méthode en V, avec relation client privilégiée en tant que référent technique principal.',
     technologies: ['Laravel 11', 'Vue.js', 'MySQL', 'Figma'],
     duration: '6 mois',
-    images: ['/src/assets/laravel.png', '/src/assets/figma.png', '/src/assets/agile.png'],
+    images: ['/src/assets/glisse-sensation1.png', '/src/assets/glisse-sensation2.png'],
     details: {
       context: 'Création complète d\'une plateforme de gestion pour Glisse Sensation',
       achievements: [
@@ -139,7 +139,7 @@ export const projectsData = Object.freeze([
     detailedDescription: 'Portfolio personnel développé pendant ma transition vers React. Projet from scratch avec design Figma personnalisé, mettant l\'accent sur les performances et l\'expérience utilisateur moderne.',
     technologies: ['React 18', 'Tailwind CSS', 'Vite', 'EmailJS'],
     duration: 'En cours',
-    images: ['/src/assets/react.png', '/src/assets/tailwind.png', '/src/assets/figma.png'],
+    images: ['/src/assets/maquette-portfolio.png', '/src/assets/responsive-portfolio.png'],
     details: {
       context: 'Portfolio personnel développé pendant transition vers React',
       achievements: [
