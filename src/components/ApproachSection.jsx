@@ -67,7 +67,7 @@ const ApproachSection = React.memo(({ approachData, isActive }) => {
           {/* Titre de la section */}
           <h2 className={`
             text-4xl md:text-4xl lg:text-5xl font-jost font-bold 
-            mb-6 md:mb-8 lg:mb-12 text-left
+            mb-6 md:mb-8 lg:mb-6 text-left
             transition-colors duration-300
             ${isActive ? 'text-portfolio-purple' : 'text-portfolio-text-primary'}
           `}>
@@ -75,7 +75,7 @@ const ApproachSection = React.memo(({ approachData, isActive }) => {
           </h2>
           
           {/* Container de contenu avec background et clip-path */}
-          <div className="section-approach p-4 md:p-8 lg:p-12">
+          <div className="p-4 section-approach md:p-8 lg:p-12">
             
             {/* Contenu principal */}
             <div className="space-y-4 md:space-y-6 lg:space-y-8">
