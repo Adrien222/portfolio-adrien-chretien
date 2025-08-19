@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
 
-const RealizationsSection = React.memo(({ realizationsData, isActive }) => {
-  // ✅ États pour les animations
+const RealizationsSection = React.memo(({ realizationsData }) => {
+  // États pour les animations
   const [selectedProject, setSelectedProject] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // ✅ Intersection Observer pour déclencher l'animation
+  // Intersection Observer pour déclencher l'animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

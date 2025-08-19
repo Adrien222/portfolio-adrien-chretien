@@ -1,16 +1,18 @@
 // ========================================
-// Hook pour personnaliser l'effet de dévoilement
+// Hook pour personnaliser l'effet de dévoilement INVERSÉ DRAMATIQUE
 // ========================================
 
 import { useState, useEffect } from 'react';
 
 /**
- * Hook personnalisé pour l'effet de dévoilement au scroll
- * @param {number} revealPercentage - Pourcentage de la page où l'effet se termine (default: 70)
+ * Hook personnalisé pour l'effet de dévoilement au scroll INVERSÉ
+ * Plus on descend, plus le fond devient sombre
+ * @param {number} maxDarknessAt - Pourcentage de la page où le fond est noir à 100% (default: 55)
  * @param {boolean} easeOut - Utiliser un easing plus doux (default: true)
  */
-export const useScrollReveal = (revealPercentage = 70, easeOut = true) => {
-  const [overlayOpacity, setOverlayOpacity] = useState(1);
+export const useScrollReveal = (maxDarknessAt = 55, easeOut = true) => {
+  // ✅ Commence très clair pour effet dramatique
+  const [overlayOpacity, setOverlayOpacity] = useState(0.15);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,8 +20,8 @@ export const useScrollReveal = (revealPercentage = 70, easeOut = true) => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       
-      // Calcul de la progression du scroll
-      const maxScroll = (documentHeight - windowHeight) * (revealPercentage / 100);
+      // Calcul jusqu'à quelle position on veut l'effet maximum
+      const maxScroll = (documentHeight - windowHeight) * (maxDarknessAt / 100);
       let scrollProgress = Math.min(scrollY / maxScroll, 1);
       
       // Application d'un easing si demandé
@@ -28,18 +30,22 @@ export const useScrollReveal = (revealPercentage = 70, easeOut = true) => {
         scrollProgress = 1 - Math.pow(1 - scrollProgress, 2);
       }
       
-      // Calcul de l'opacité
-      const newOpacity = Math.max(1 - scrollProgress, 0);
+      // Contraste fort entre début et fin
+      // 0.15 (très clair) → 1.0 (noir total)
+      const newOpacity = Math.min(0.15 + (scrollProgress * 0.85), 1);
       
       setOverlayOpacity(newOpacity);
     };
+
+    // Appel initial pour définir l'état de départ
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [revealPercentage, easeOut]);
+  }, [maxDarknessAt, easeOut]);
 
   return overlayOpacity;
 };

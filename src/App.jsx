@@ -12,7 +12,7 @@ import RealizationsSection from './components/RealizationsSection';
 /**
  * App - Composant racine avec hook useScrollReveal et vraies données
  * - État global de l'application géré ici
- * - Hook personnalisé pour l'effet de dévoilement
+ * - Hook personnalisé pour l'effet de dévoilement INVERSÉ (plus sombre en descendant)
  * - Props immutables descendues aux enfants
  * - Handlers optimisés avec useCallback
  */
@@ -23,8 +23,11 @@ function App() {
     activeSection: 'home'
   }));
 
-  // Hook personnalisé pour l'effet de dévoilement (70% de scroll avec easing)
-  const overlayOpacity = useScrollReveal(70, true);
+  // Hook personnalisé pour l'effet de dévoilement
+  // Paramètres ajustés pour effet marqué :
+  // - 55% : le fond devient noir total à 55% de la page (juste avant les réalisations)
+  // - true : easing doux pour transition fluide
+  const overlayOpacity = useScrollReveal(55, true);
 
   // Handler principal pour le changement de section
   const handleSectionChange = useCallback((newSection) => {
@@ -93,7 +96,7 @@ function App() {
   return (
     <div className="min-h-screen">
       
-      {/* Overlay dynamique qui se révèle au scroll */}
+      {/* Overlay dynamique qui devient de plus en plus sombre au scroll */}
       <div 
         className="background-overlay"
         style={{ opacity: overlayOpacity }}
@@ -116,8 +119,8 @@ function App() {
           {/* Section Mon savoir-faire avec cartes compétences */}
           <SkillsSection {...skillsProps} />
           
-           {/* Section Mes réalisations avec cartes projets */}
-          <RealizationsSection {...realizationsProps}/>
+          {/* Section Mes réalisations avec cartes projets et animations */}
+          <RealizationsSection {...realizationsProps} />
           
         </main>
         
@@ -125,27 +128,5 @@ function App() {
     </div>
   );
 }
-
-/**
- * SectionPlaceholder - Composant pur pour les sections à venir
- * Props immutables, rendu conditionnel
- */
-const SectionPlaceholder = React.memo(({ id, title, isActive }) => {
-  return (
-    <section 
-      id={id}
-      className="flex items-center justify-center min-h-screen section-spacing"
-    >
-      <h2 className={`
-        text-4xl lg:text-5xl font-jost font-bold transition-colors duration-300
-        ${isActive ? 'text-portfolio-purple' : 'text-portfolio-text-primary'}
-      `}>
-        {title}
-      </h2>
-    </section>
-  );
-});
-
-SectionPlaceholder.displayName = 'SectionPlaceholder';
 
 export default App;
