@@ -92,17 +92,22 @@ export const projectsData = Object.freeze([
     title: 'Plateforme Téléconsultation',
     subtitle: 'Secteur Santé • Java/Vaadin',
     description: 'Refonte complète d\'une application multi-support de téléconsultation',
+    // Description détaillée pour le modal
+    detailedDescription: 'Mission stratégique au sein du premier Groupement d\'Intérêt Public français dédié au secteur de la santé. Modernisation technique et fonctionnelle complète d\'une application critique utilisée par des professionnels de santé en production.',
     technologies: ['Java EE', 'Vaadin 23', 'PostgreSQL', 'JPA', 'Maven', 'Hibernate'],
     duration: '3 ans',
+    // Images pour le modal
+    images: ['/src/assets/java.png', '/src/assets/vaadin.png', '/src/assets/postgresql.png'],
     details: {
       context: 'Mission stratégique au sein du premier GIP français dédié à la santé',
       achievements: [
-        'Migration Vaadin V13 → V23 et Java 8 → Java 11',
-        'Développement interface patient optimisée mobile/tablette',
-        'Intégration technique avancée Jitsi pour assistance vidéo',
-        'Refonte processus de paiement avec API Mangopay'
+        'Migration technologique complète : Vaadin V13 → V23, Java 8 → Java 11',
+        'Développement interface patient complète avec optimisation mobile/tablette',
+        'Intégration technique avancée Jitsi : solution d\'assistance vidéo custom, gestion de présence intelligente',
+        'Refonte du processus de paiement avec intégration API Mangopay',
+        'Architecture DevOps complète : automatisation Maven, configuration Nginx/WildFly'
       ],
-      impact: 'Application critique utilisée par des professionnels de santé en production'
+      impact: 'Amélioration significative des performances et de l\'ergonomie utilisateur. Fidélité parfaite aux maquettes design pour une expérience utilisateur cohérente.'
     }
   },
   {
@@ -110,17 +115,20 @@ export const projectsData = Object.freeze([
     title: 'Back-Office Club Nautique',
     subtitle: 'Secteur Sports • Laravel/Vue.js',
     description: 'Digitalisation des processus métier d\'une association de sport nautique',
+    detailedDescription: 'Création complète d\'une plateforme de gestion digitale pour Glisse Sensation, club de sports nautiques innovant. Projet mené en équipe de 4 personnes selon la méthode en V, avec relation client privilégiée en tant que référent technique principal.',
     technologies: ['Laravel 11', 'Vue.js', 'MySQL', 'Figma'],
     duration: '6 mois',
+    images: ['/src/assets/laravel.png', '/src/assets/figma.png', '/src/assets/agile.png'],
     details: {
       context: 'Création complète d\'une plateforme de gestion pour Glisse Sensation',
       achievements: [
-        'Analyse métier approfondie et rédaction cahier des charges',
-        'Conception UX/UI complète via Figma',
-        'Architecture MVC robuste et évolutive',
-        'Interface responsive native tablette/PC'
+        'Analyse métier approfondie : rédaction d\'un cahier des charges complet après étude des processus existants',
+        'Conception UX/UI complète via Figma : maquettes fonctionnelles validées avec le client',
+        'Développement full-stack avec Laravel 11 et Vue.js, architecture MVC robuste et évolutive',
+        'Base de données MySQL optimisée avec gestion via PhpMyAdmin',
+        'Interface responsive native : adaptation parfaite tablette et PC pour usage terrain/bureau'
       ],
-      impact: 'Digitalisation complète des processus manuels du club'
+      impact: 'Digitalisation complète des processus manuels du club. Interface intuitive permettant une adoption rapide par l\'équipe pédagogique.'
     }
   },
   {
@@ -128,17 +136,20 @@ export const projectsData = Object.freeze([
     title: 'Mon Portfolio',
     subtitle: 'Personnel • React/Tailwind',
     description: 'Ce projet m\'a pris (beaucoup) plus de temps que prévu !',
+    detailedDescription: 'Portfolio personnel développé pendant ma transition vers React. Projet from scratch avec design Figma personnalisé, mettant l\'accent sur les performances et l\'expérience utilisateur moderne.',
     technologies: ['React 18', 'Tailwind CSS', 'Vite', 'EmailJS'],
     duration: 'En cours',
+    images: ['/src/assets/react.png', '/src/assets/tailwind.png', '/src/assets/figma.png'],
     details: {
-      context: 'Portfolio personnel développé during transition vers React',
+      context: 'Portfolio personnel développé pendant transition vers React',
       achievements: [
-        'Configuration Tailwind personnalisée basée sur design Figma',
-        'Composants React avec animations fluides',
-        'Architecture modulaire et maintenable',
-        'Optimisation performance et accessibilité'
+        'Configuration Tailwind personnalisée basée sur design Figma complet',
+        'Composants React modulaires avec animations fluides et effects hover',
+        'Architecture clean et maintenable respectant les bonnes pratiques',
+        'Optimisation performance et accessibilité (lighthouse score > 90%)',
+        'Système de routage et navigation smooth entre sections'
       ],
-      impact: 'Vitrine technique démontrant ma polyvalence frontend/backend'
+      impact: 'Vitrine technique démontrant ma polyvalence frontend/backend et ma capacité à créer des interfaces modernes et engageantes.'
     }
   }
 ]);

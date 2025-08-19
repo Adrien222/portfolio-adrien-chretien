@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { personalInfo, approachData, skillsData } from './data/portfolioData';
+import { personalInfo, approachData, skillsData, projectsData } from './data/portfolioData';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 // Import des composants
@@ -7,6 +7,7 @@ import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import ApproachSection from './components/ApproachSection';
 import SkillsSection from './components/SkillsSection';
+import RealizationsSection from './components/RealizationsSection';
 
 /**
  * App - Composant racine avec hook useScrollReveal et vraies données
@@ -83,6 +84,12 @@ function App() {
     isActive: appState.activeSection === 'savoir-faire'
   }), [appState.activeSection]);
 
+  // Mémorisation des props de la section Réalisations
+  const realizationsProps = useMemo(() => ({
+    realizationsData: projectsData,
+    isActive: appState.activeSection === 'realisations'
+  }), [appState.activeSection]);
+
   return (
     <div className="min-h-screen">
       
@@ -109,12 +116,8 @@ function App() {
           {/* Section Mon savoir-faire avec cartes compétences */}
           <SkillsSection {...skillsProps} />
           
-          {/* Section placeholder - À développer dans les prochaines étapes */}
-          <SectionPlaceholder 
-            id="realisations" 
-            title="Mes réalisations"
-            isActive={appState.activeSection === 'realisations'}
-          />
+           {/* Section Mes réalisations avec cartes projets */}
+          <RealizationsSection {...realizationsProps}/>
           
         </main>
         
