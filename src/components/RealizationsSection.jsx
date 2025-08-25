@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
 
-const RealizationsSection = React.memo(({ realizationsData }) => {
+const RealizationsSection = React.memo(({ realizationsData, isActive }) => {
   // États pour les animations
   const [selectedProject, setSelectedProject] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -44,14 +44,16 @@ const RealizationsSection = React.memo(({ realizationsData }) => {
     <section 
       ref={sectionRef}
       id="realisations" 
-      className="section-spacing"
+      className="pt-24 section-spacing md:pt-32"
     >
       <div className="container-portfolio">
-        {/* Titre avec animation */}
+        {/* Titre avec animation ET couleur active */}
         <h2 className={`
-          mb-16 text-4xl font-bold text-center text-white lg:text-5xl font-jost
+          mb-16 text-4xl font-bold text-center lg:text-5xl font-jost
           transform transition-all duration-700 ease-out
+          transition-colors duration-300
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+          ${isActive ? 'text-portfolio-purple' : 'text-portfolio-text-primary'}
         `}>
           Mes réalisations
         </h2>
