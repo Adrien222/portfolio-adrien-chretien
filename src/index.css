@@ -484,14 +484,29 @@
   }
 
   /* Responsive pour mobile */
+/* Responsive pour mobile - OPTIMISÉ */
   @media (max-width: 768px) {
     .section-approach {
       /* Angle plus petit sur mobile */
       clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+      
+      /* Optimisations mobile */
+      margin: 1rem auto;
+      padding: 2rem 1.5rem;
+      max-width: 95%;
     }
     
     .section-approach::before {
       clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+    }
+  }
+
+    @media (max-width: 480px) {
+    .section-approach {
+      /* Mobile très petit */
+      margin: 0.5rem auto;
+      padding: 1.5rem 1rem;
+      max-width: 98%;
     }
   }
 
@@ -1101,13 +1116,36 @@
     padding-right: 1.5rem;
   }
   
-  /* Espacement des sections */
-  .section-spacing {
+ .section-spacing {
     padding-top: 60px;
     padding-bottom: 60px;
   }
   
-  /* Grille des compétences - CONSERVÉE POUR COMPATIBILITÉ */
+  /* Tablette */
+  @media (max-width: 1024px) {
+    .section-spacing {
+      padding-top: 40px;
+      padding-bottom: 50px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .section-spacing {
+      padding-top: 20px;   /* Beaucoup plus petit sur mobile */
+      padding-bottom: 40px;
+    }
+  }
+  
+  /* Très petit mobile */
+  @media (max-width: 480px) {
+    .section-spacing {
+      padding-top: 15px;
+      padding-bottom: 30px;
+    }
+  }
+  
+  /* Grille des compétences */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);

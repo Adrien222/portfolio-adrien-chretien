@@ -5,6 +5,7 @@ import React, { useMemo, useState, useEffect, useRef } from 'react';
  * - Parse le texte avec **bold** et le convertit en JSX avec <strong>
  * - Animation d'entrée stable avec Intersection Observer
  * - Z-index correct pour éviter les conflits avec l'overlay de fond
+ * - Optimisé pour mobile avec centrage et espacement réduit
  */
 const ApproachSection = React.memo(({ approachData, isActive }) => {
   
@@ -56,19 +57,20 @@ const ApproachSection = React.memo(({ approachData, isActive }) => {
         ref={sectionRef}
         id="approche"
         className={`
-          min-h-screen flex items-center
-          pt-20 md:pt-24 lg:pt-28
+          min-h-screen flex items-center justify-center
+          pt-12 md:pt-20 lg:pt-28
+          px-4 md:px-0
           transform transition-all duration-700 ease-out
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}
       >
       {/* Container principal avec largeur max cohérente */}
-      <div className="container-portfolio">
+      <div className="w-full container-portfolio">
           
           {/* Titre de la section */}
           <h2 className={`
-            text-4xl md:text-4xl lg:text-5xl font-jost font-bold 
-            mb-6 md:mb-8 lg:mb-6 text-left
+            text-3xl md:text-4xl lg:text-5xl font-jost font-bold 
+            mb-4 md:mb-6 lg:mb-6 text-center md:text-left
             transition-colors duration-300
             ${isActive ? 'text-portfolio-purple' : 'text-portfolio-text-primary'}
           `}>
@@ -79,13 +81,13 @@ const ApproachSection = React.memo(({ approachData, isActive }) => {
           <div className="p-4 section-approach md:p-8 lg:p-12">
             
             {/* Contenu principal */}
-            <div className="space-y-4 md:space-y-6 lg:space-y-8">
+            <div className="space-y-3 md:space-y-4 lg:space-y-6">
               {approachData.content.map((paragraph, index) => (
                 <p 
                   key={index}
                   className={`
-                    text-sm md:text-base lg:text-lg leading-relaxed 
-                    text-portfolio-text-secondary text-left
+                    text-sm md:text-base lg:text-base leading-relaxed 
+                    text-portfolio-text-secondary text-center md:text-left
                     transform transition-all duration-500 ease-out
                     ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
                   `}
