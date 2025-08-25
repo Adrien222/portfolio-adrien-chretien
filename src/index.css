@@ -14,7 +14,7 @@
     font-family: 'Inter', sans-serif;
     color: #FFFFFF;
     /* Image de fond pure - l'overlay sera géré par JavaScript */
-    background: url('./assets/background.jpg');
+    background: url('/images/background.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;

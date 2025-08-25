@@ -41,7 +41,7 @@ export const skillCategories = {
  */
 export const getSkillImage = (skillId) => {
   try {
-    return `/src/assets/${skillId}.png`;
+    return `/images/${skillId}.png`;
   } catch (error) {
     console.warn(`Image non trouvée pour ${skillId}.png dans assets/`);
     return null;

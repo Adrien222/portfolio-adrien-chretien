@@ -39,7 +39,7 @@ const HeroSection = memo(({
         {/* Photo de profil avec bordure dégradée */}
         <div>
           <img 
-            src="/src/assets/pp.jpg"
+            src="/images/pp.jpg"
             alt={`Photo de profil de ${personalInfo.name}`}
             className="hero-profile-image"
             loading="eager"

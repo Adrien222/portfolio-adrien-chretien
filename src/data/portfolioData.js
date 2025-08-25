@@ -97,7 +97,7 @@ export const projectsData = Object.freeze([
     technologies: ['Java EE', 'Vaadin 23', 'PostgreSQL', 'JPA', 'Maven', 'Hibernate'],
     duration: '3 ans',
     // Images pour le modal
-    images: ['/src/assets/medicam1.png'],
+    images: ['/images/medicam1.png'],
     details: {
       context: 'Mission stratégique au cœur du système de santé français',
       achievements: [
@@ -117,7 +117,7 @@ export const projectsData = Object.freeze([
     description: 'Nouvelle solution sur mesure, taillée pour les besoins métier',
     detailedDescription: 'Glisse Sensation utilisait une solution développée par une agence, mais qui ne correspondait plus à leurs besoins. En tant que référent technique, j’ai mené une équipe de 4 pour concevoir une application sur mesure, parfaitement adaptée à leurs processus et à leur quotidien. Relation client fluide, qualité technique au rendez-vous.',
     technologies: ['Laravel 11', 'Vue.js', 'MySQL', 'Figma'],
-    images: ['/src/assets/glisse-sensation1.png', '/src/assets/glisse-sensation2.png'],
+    images: ['/images/glisse-sensation1.png', '/images/glisse-sensation2.png'],
     details: {
       context: 'Conception d’une solution métier sur mesure pour un club nautique innovant',
       achievements: [
@@ -139,7 +139,7 @@ export const projectsData = Object.freeze([
     description: 'Un projet personnel pour explorer React en profondeur et soigner chaque détail UI/UX.',
     detailedDescription: 'Ce portfolio a été conçu comme un terrain d’apprentissage et de démonstration. J’y ai travaillé la réflexion maquettage sur Figma, la transposition en code avec Tailwind, les animations et l’optimisation responsive. L’objectif : produire une vitrine technique claire, performante et adaptée à tous les supports.',
     technologies: ['React 18', 'Tailwind CSS', 'Vite', 'EmailJS'],
-    images: ['/src/assets/maquette-portfolio.png', '/src/assets/responsive-portfolio.png'],
+    images: ['/images/maquette-portfolio.png', '/images/responsive-portfolio.png'],
     details: {
       context: 'Vitrine technique développée pour progresser en React et approfondir mes pratiques UI/UX',
       achievements: [
