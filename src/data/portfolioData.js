@@ -139,7 +139,7 @@ export const projectsData = Object.freeze([
     description: 'Un projet personnel pour explorer React en profondeur et soigner chaque détail UI/UX.',
     detailedDescription: 'Ce portfolio a été conçu comme un terrain d’apprentissage et de démonstration. J’y ai travaillé la réflexion maquettage sur Figma, la transposition en code avec Tailwind, les animations et l’optimisation responsive. L’objectif : produire une vitrine technique claire, performante et adaptée à tous les supports.',
     technologies: ['React 18', 'Tailwind CSS', 'Vite', 'EmailJS'],
-    images: ['/images/maquette-portfolio.png', '/public/images/responsive-portfolio.png'],
+    images: ['/images/maquette-portfolio.png', '/images/responsive-portfolio.png'],
     details: {
       context: 'Vitrine technique développée pour progresser en React et approfondir mes pratiques UI/UX',
       achievements: [
