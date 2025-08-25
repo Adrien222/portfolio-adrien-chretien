@@ -7,6 +7,7 @@ import SkillCard from './SkillCard';
  * - Animation d'entrée avec Intersection Observer
  * - Layout responsive : 1 colonne mobile, 2 tablet, 4 desktop
  * - Cartes flip avec animations au hover
+ * - Section "Base de données" supprimée, PostgreSQL intégré dans Backend
  */
 const SkillsSection = React.memo(({ skillsData, isActive }) => {
   
@@ -46,11 +47,10 @@ const SkillsSection = React.memo(({ skillsData, isActive }) => {
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
       `}
     >
-      {/* Container principal */}
       <div className="container-portfolio">
         <div className="max-w-6xl mx-auto">
           
-          {/* Titre de la section */}
+          {/* Titre principal */}
           <h2 className={`
             text-3xl md:text-4xl lg:text-5xl font-jost font-bold 
             mb-8 md:mb-12 lg:mb-16 text-center
@@ -60,86 +60,60 @@ const SkillsSection = React.memo(({ skillsData, isActive }) => {
             Mon savoir-faire
           </h2>
           
-          {/* Grille des compétences avec regroupement par catégorie */}
-          <div className="w-full max-w-7xl mx-auto px-4 lg:px-6">
+          <div className="w-full px-4 mx-auto max-w-7xl lg:px-6">
             
-            {/* Organisation par catégories avec centrage parfait */}
-            <div className="flex flex-col items-center space-y-16">
-              
-              {/* Frontend */}
-                <h3 className="skills-category-title">
-                  Frontend
-                </h3>
-                <div className="skills-cards-container">
-                  {skillsData
-                    .filter(skill => skill.category === 'frontend')
-                    .map((skill, index) => (
-                      <SkillCard 
-                        key={skill.id}
-                        skill={skill}
-                        index={index}
-                        isVisible={isVisible}
-                      />
-                    ))}
+            {/* Frontend */}
+            <div className="mb-16">
+              <h3 className="skills-category-title">Frontend</h3>
+              <div className="skills-cards-container">
+                {skillsData
+                  .filter(skill => skill.category === 'frontend')
+                  .map((skill, index) => (
+                    <SkillCard 
+                      key={skill.id}
+                      skill={skill}
+                      index={index}
+                      isVisible={isVisible}
+                    />
+                  ))}
               </div>
-              
-              {/* Backend */}
-                <h3 className="skills-category-title">
-                  Backend
-                </h3>
-                <div className="skills-cards-container">
-                  {skillsData
-                    .filter(skill => skill.category === 'backend')
-                    .map((skill, index) => (
-                      <SkillCard 
-                        key={skill.id}
-                        skill={skill}
-                        index={index + 2}
-                        isVisible={isVisible}
-                      />
-                    ))}
+            </div>
+            
+            {/* Backend (inclut PostgreSQL) */}
+            <div className="mb-16">
+              <h3 className="skills-category-title">Backend</h3>
+              <div className="skills-cards-container">
+                {skillsData
+                  .filter(skill => skill.category === 'backend' || skill.category === 'database')
+                  .map((skill, index) => (
+                    <SkillCard 
+                      key={skill.id}
+                      skill={skill}
+                      index={index + 3}
+                      isVisible={isVisible}
+                    />
+                  ))}
               </div>
-              
-              {/* Base de données */}
-                <h3 className="skills-category-title">
-                  Base de données
-                </h3>
-                <div className="skills-cards-container">
-                  {skillsData
-                    .filter(skill => skill.category === 'database')
-                    .map((skill, index) => (
-                      <SkillCard 
-                        key={skill.id}
-                        skill={skill}
-                        index={index + 5}
-                        isVisible={isVisible}
-                      />
-                    ))}
+            </div>
+            
+            {/* Outils & Méthodes */}
+            <div className="mb-8">
+              <h3 className="skills-category-title">Outils & Méthodes</h3>
+              <div className="skills-cards-container">
+                {skillsData
+                  .filter(skill => skill.category === 'tools' || skill.category === 'methodology')
+                  .map((skill, index) => (
+                    <SkillCard 
+                      key={skill.id}
+                      skill={skill}
+                      index={index + 6}
+                      isVisible={isVisible}
+                    />
+                  ))}
               </div>
-              
-              {/* Outils & Méthodes */}
-                <h3 className="skills-category-title">
-                  Outils & Méthodes
-                </h3>
-                <div className="skills-cards-container">
-                  {skillsData
-                    .filter(skill => skill.category === 'tools' || skill.category === 'methodology')
-                    .map((skill, index) => (
-                      <SkillCard 
-                        key={skill.id}
-                        skill={skill}
-                        index={index + 6}
-                        isVisible={isVisible}
-                      />
-                    ))}
-              </div>
-              
             </div>
             
           </div>
-          
-          {/* Note Figma supprimée - Figma est maintenant une carte de compétence */}
-          
         </div>
       </div>
     </section>
