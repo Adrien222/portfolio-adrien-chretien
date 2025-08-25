@@ -8,6 +8,7 @@ import HeroSection from './components/HeroSection';
 import ApproachSection from './components/ApproachSection';
 import SkillsSection from './components/SkillsSection';
 import RealizationsSection from './components/RealizationsSection';
+import ContactSection from './components/ContactSection';
 
 /**
  * App - Composant racine avec hook useScrollReveal et vraies données
@@ -37,15 +38,21 @@ function App() {
     }));
   }, []);
 
-  // Handler pour le contact
+  // Handler pour le contact - CORRIGÉ
   const handleContactClick = useCallback(() => {
     setAppState(prevState => ({
       ...prevState,
       activeSection: 'contact'
     }));
     
-    // Future : scroll vers section contact
-    console.log('Contact clicked - Future: scroll to contact section');
+    // Scroll vers section contact
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   }, []);
 
   // Handler pour "En savoir plus" - scroll vers Mon approche
@@ -121,6 +128,9 @@ function App() {
           
           {/* Section Mes réalisations avec cartes projets et animations */}
           <RealizationsSection {...realizationsProps} />
+
+          {/* Section Contact avec formulaire fonctionnel */}
+          <ContactSection />
           
         </main>
         

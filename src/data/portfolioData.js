@@ -154,18 +154,56 @@ export const projectsData = Object.freeze([
   }
 ]);
 
+// Section Contact
+export const contactData = Object.freeze({
+  title: 'Parlons de votre projet',
+  subtitle: 'Un projet en tête ? Parlons-en !',
+  placeholders: {
+    name: "Votre nom ou celui de votre entreprise",
+    email: "votre.email@entreprise.com", 
+    message: "Décrivez-moi votre projet : objectifs, délais, technologies souhaitées... Plus vous serez précis, mieux je pourrai vous aider !"
+  },
+  footer: {
+    copyright: '© 2025 {name}. All Rights Reserved.',
+    socialText: 'Retrouvez moi également sur :',
+    socialLinks: [
+      { name: 'LinkedIn', key: 'linkedin' },
+      { name: 'Malt', key: 'malt' },
+      { name: 'Github', key: 'github' }
+    ]
+  }
+});
+
 // Configuration du formulaire de contact
+// Configuration du formulaire de contact avec EmailJS
 export const contactConfig = Object.freeze({
   emailjs: {
-    serviceId: 'your_service_id',
-    templateId: 'your_template_id',
-    publicKey: 'your_public_key'
+    serviceId: 'service_2bnlcvq',     // À remplacer par ton Service ID
+    templateId: 'template_6tuepv3',   // À remplacer par ton Template ID  
+    publicKey: 'l1Gg0HmaR-G4BSTCx'     // À remplacer par ta Public Key
   },
   fields: [
     { id: 'name', label: 'Nom', type: 'text', required: true },
     { id: 'email', label: 'Email', type: 'email', required: true },
     { id: 'message', label: 'Message', type: 'textarea', required: true }
-  ]
+  ],
+  validation: {
+    email: {
+      regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      message: 'Veuillez entrer un email valide'
+    },
+    message: {
+      minLength: 10,
+      message: 'Le message doit contenir au moins 10 caractères'
+    }
+  },
+  messages: {
+    sending: 'Envoi en cours...',
+    success: 'Message envoyé avec succès ! Je vous répondrai rapidement.',
+    error: 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer.',
+    networkError: 'Problème de connexion. Vérifiez votre connexion internet.',
+    validationError: 'Veuillez corriger les erreurs avant d\'envoyer.'
+  }
 });
 
 // Section "Mon approche" 
