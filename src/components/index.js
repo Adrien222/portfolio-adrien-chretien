@@ -1,6 +1,6 @@
 /**
  * Export centralisé de tous les composants
- * Architecture React experte - Composants atomiques et composés
+ * Architecture React  - Composants atomiques et composés
  */
 
 // Composants atomiques

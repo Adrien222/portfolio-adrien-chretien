@@ -139,7 +139,7 @@ export const projectsData = Object.freeze([
     description: 'Un projet personnel pour explorer React en profondeur et soigner chaque détail UI/UX.',
     detailedDescription: 'Ce portfolio a été conçu comme un terrain d’apprentissage et de démonstration. J’y ai travaillé la réflexion maquettage sur Figma, la transposition en code avec Tailwind, les animations et l’optimisation responsive. L’objectif : produire une vitrine technique claire, performante et adaptée à tous les supports.',
     technologies: ['React 18', 'Tailwind CSS', 'Vite', 'EmailJS'],
-    images: ['/images/maquette-portfolio.png', '/images/responsive-portfolio.png'],
+    images: ['/images/maquette-portfolio.png', '/public/images/responsive-portfolio.png'],
     details: {
       context: 'Vitrine technique développée pour progresser en React et approfondir mes pratiques UI/UX',
       achievements: [
@@ -175,10 +175,10 @@ export const contactData = Object.freeze({
 // Configuration du formulaire de contact
 // Configuration du formulaire de contact avec EmailJS
 export const contactConfig = Object.freeze({
-  emailjs: {
-    serviceId: 'service_2bnlcvq',    
-    templateId: 'template_6tuepv3', 
-    publicKey: 'l1Gg0HmaR-G4BSTCx'
+    emailjs: {
+    serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,    
+    templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
+    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
   },
   fields: [
     { id: 'name', label: 'Nom', type: 'text', required: true },
@@ -197,7 +197,7 @@ export const contactConfig = Object.freeze({
   },
   messages: {
     sending: 'Envoi en cours...',
-    success: 'Message reçu 5/5 ! Je reviens vers vous très vite avec du concret.',
+    success: 'Message reçu ! Je reviens vers vous très vite avec du concret.',
     error: 'Oups, un bug ! Réessayez ou contactez-moi directement.',
     networkError: 'Problème de réseau. Vérifiez votre connexion et on repart !',
     validationError: 'Quelques détails manquent pour que je puisse vous aider au mieux.'

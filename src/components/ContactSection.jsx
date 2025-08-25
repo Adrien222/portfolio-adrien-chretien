@@ -127,7 +127,7 @@ const ContactSection = memo(({ className = '' }) => {
 
     try {
       const templateParams = {
-        name: formData.name,
+        from_name: formData.name,
         from_email: formData.email,
         email: formData.email,
         message: formData.message,
