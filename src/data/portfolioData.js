@@ -8,15 +8,15 @@
 export const navigationItems = Object.freeze([
   { id: 'approche', label: 'Mon approche', href: '#approche' },
   { id: 'savoir-faire', label: 'Mon savoir-faire', href: '#savoir-faire' },
-  { id: 'realisations', label: 'Mes Réalisations', href: '#realisations' }
+  { id: 'realisations', label: 'Mes réalisations', href: '#realisations' }
 ]);
 
 // Informations personnelles
 export const personalInfo = Object.freeze({
   name: 'Adrien Chretien',
   title: 'Développeur Full-Stack Java & React',
-  description: 'Spécialisé dans les applications web métier',
-  fullDescription: 'J’accompagne entreprises et startups avec 3 ans d’expérience pour concevoir des solutions performantes, évolutives et maintenables.',
+  description: 'Spécialisé dans les applications web métier,',
+  fullDescription: 'j’accompagne entreprises et startups avec 3 ans d’expérience pour concevoir des solutions performantes, évolutives et maintenables.',
   location: 'Beauvais, France',
   email: 'adrienchretien2002@gmail.com',
   linkedin: 'https://linkedin.com/in/adrien-chretien-b0408a223',

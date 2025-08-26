@@ -11,33 +11,33 @@ export const skillCategories = {
   frontend: {
     name: 'Frontend',
     color: '#61DAFB',
-    badge: 'front'
+    badge: 'Front'
   },
   backend: {
     name: 'Backend', 
     color: '#ED8B00',
-    badge: 'back'
+    badge: 'Back'
   },
   database: {
     name: 'Base de données',
     color: '#336791',
-    badge: 'bdd'
+    badge: 'Bdd'
   },
   tools: {
     name: 'Outils',
     color: '#F05032',
-    badge: 'outil'
+    badge: 'Outil'
   },
   methodology: {
     name: 'Méthodes',
     color: '#FF6B6B',
-    badge: 'méthode'
+    badge: 'Méthode'
   }
 };
 
 /**
  * Fonction utilitaire pour obtenir l'image d'une compétence
- * Cherche automatiquement dans assets/ selon l'ID
+ * Cherche automatiquement dans public/ selon l'ID
  */
 export const getSkillImage = (skillId) => {
   try {
@@ -53,8 +53,7 @@ export const getSkillImage = (skillId) => {
  */
 export const getDefaultIcon = (skillName) => {
   return (
-    <div className="w-16 h-16 bg-portfolio-purple rounded-lg 
-                    flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+    <div className="flex items-center justify-center w-16 h-16 text-2xl font-bold text-white rounded-lg shadow-lg bg-portfolio-purple">
       {skillName.charAt(0)}
     </div>
   );
