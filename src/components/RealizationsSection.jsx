@@ -48,7 +48,7 @@ const RealizationsSection = React.memo(({ realizationsData, isActive }) => {
     >
       <div className="container-portfolio">
         {/* Titre avec animation ET couleur active */}
-        <h2 className={`
+        <h1 className={`
           mb-16 text-4xl font-bold text-center lg:text-5xl font-jost
           transform transition-all duration-700 ease-out
           transition-colors duration-300
@@ -56,7 +56,7 @@ const RealizationsSection = React.memo(({ realizationsData, isActive }) => {
           ${isActive ? 'text-portfolio-purple' : 'text-portfolio-text-primary'}
         `}>
           Mes réalisations
-        </h2>
+        </h1>
         
         {/* Container des cartes avec animation en cascade */}
         <div className="grid max-w-6xl grid-cols-1 gap-6 px-4 mx-auto md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:px-0">

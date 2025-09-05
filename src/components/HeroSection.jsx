@@ -55,9 +55,9 @@ const HeroSection = memo(({
           </h1>
           
           {/* Titre/Spécialité en violet */}
-          <h2 className="hero-subtitle">
+          <h1 className="hero-subtitle">
             {personalInfo.title}
-          </h2>
+          </h1>
           
           {/* Description complète */}
           <p className="hero-description">

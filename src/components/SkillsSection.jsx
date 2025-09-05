@@ -51,14 +51,14 @@ const SkillsSection = React.memo(({ skillsData, isActive }) => {
         <div className="max-w-6xl mx-auto">
           
           {/* Titre principal */}
-          <h2 className={`
+          <h1 className={`
             text-3xl md:text-4xl lg:text-5xl font-jost font-bold 
             mb-8 md:mb-12 lg:mb-16 text-center
             transition-colors duration-300
             ${isActive ? 'text-portfolio-purple' : 'text-portfolio-text-primary'}
           `}>
             Mon savoir-faire
-          </h2>
+          </h1>
           
           <div className="w-full px-4 mx-auto max-w-7xl lg:px-6">
             

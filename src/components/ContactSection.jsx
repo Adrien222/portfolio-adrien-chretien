@@ -175,13 +175,13 @@ const ContactSection = memo(({ className = '' }) => {
     >
       <div className="container-portfolio">
         
-        <h2 
+        <h1
           ref={titleRef}
           id="contact-title"
           className={getAnimationClasses('contact-title', 'contact-title contact-title-animate')}
         >
           {contactData.title}
-        </h2>
+        </h1>
         
         <p 
           ref={subtitleRef}
