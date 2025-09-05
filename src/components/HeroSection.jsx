@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import Button from './Button';
+import OptimizedImage from './OptimizedImage';
 
 /**
  * HeroSection - Section hero principale avec photo et présentation
@@ -38,7 +39,7 @@ const HeroSection = memo(({
         
         {/* Photo de profil avec bordure dégradée */}
         <div>
-          <img 
+          <OptimizedImage 
             src="/images/pp.jpg"
             alt={`Photo de profil de ${personalInfo.name}`}
             className="hero-profile-image"

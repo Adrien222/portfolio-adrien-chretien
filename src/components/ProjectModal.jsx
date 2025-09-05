@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 const ProjectModal = React.memo(({ project, isOpen, onClose }) => {
   // État pour gérer l'image agrandie
@@ -106,7 +107,7 @@ const ProjectModal = React.memo(({ project, isOpen, onClose }) => {
                       className="relative p-4 overflow-hidden transition-all duration-300 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700 hover:scale-105"
                       onClick={() => openLightbox(image, index)}
                     >
-                      <img 
+                      <OptimizedImage 
                         src={image} 
                         alt={`${project.title} - Image ${index + 1}`}
                         className="object-contain w-full h-32 transition-transform duration-300 rounded"
@@ -165,7 +166,7 @@ const ProjectModal = React.memo(({ project, isOpen, onClose }) => {
         </div>
       </div>
 
-      {/* ✅ Lightbox pour les images agrandies - VERSION CORRIGÉE */}
+      {/* Lightbox pour les images agrandies */}
         {selectedImage && (
         <div 
             className="fixed inset-0 z-[60] bg-black bg-opacity-95 flex items-center justify-center p-4"
@@ -179,7 +180,7 @@ const ProjectModal = React.memo(({ project, isOpen, onClose }) => {
             ✕
             </button>
 
-            {/* ✅ Navigation précédent/suivant - PLUS VISIBLES */}
+            {/* Navigation précédent/suivant */}
             {project.images && project.images.length > 1 && (
             <>
                 {imageIndex > 0 && (
@@ -202,12 +203,12 @@ const ProjectModal = React.memo(({ project, isOpen, onClose }) => {
             </>
             )}
 
-            {/* ✅ Image agrandie - TAILLE ADAPTÉE SANS SCROLL */}
+            {/* Image agrandie */}
             <div 
             className="flex items-center justify-center w-full h-full p-16"
             onClick={(e) => e.stopPropagation()}
             >
-            <img 
+            <OptimizedImage 
                 src={selectedImage}
                 alt="Image agrandie"
                 className="object-contain w-auto h-auto max-w-full max-h-full transition-all duration-300 rounded-lg shadow-2xl animate-in zoom-in"
@@ -218,7 +219,7 @@ const ProjectModal = React.memo(({ project, isOpen, onClose }) => {
             />
             </div>
 
-            {/* ✅ Indicateur de position - PLUS VISIBLE */}
+            {/* Indicateur de position */}
             {project.images && project.images.length > 1 && (
             <div className="absolute px-4 py-1 text-sm font-semibold text-white transform -translate-x-1/2 bg-purple-600 border border-white rounded-full bottom-6 left-1/2 bg-opacity-90">
                 {imageIndex + 1} / {project.images.length}

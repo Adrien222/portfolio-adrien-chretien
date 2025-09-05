@@ -1,5 +1,6 @@
 import React from 'react';
 import { skillCategories, getSkillImage, getDefaultIcon } from '../utils/SkillHelper';
+import OptimizedImage from './OptimizedImage';
 
 /**
  * SkillCard - Carte de compétence avec effet flip fluide et design moderne
@@ -44,7 +45,7 @@ const SkillCard = React.memo(({ skill, index, isVisible }) => {
             {/* Icône/Image */}
             <div className="mb-4 transition-all duration-500 ease-out transform group-hover:scale-110">
               {skillImage ? (
-                <img 
+                <OptimizedImage 
                   src={skillImage} 
                   alt={skill.name}
                   className="object-contain w-16 h-16 filter drop-shadow-lg"
