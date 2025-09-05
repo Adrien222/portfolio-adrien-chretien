@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.adrienchretien.dev/sitemap.xml
+
+# Performance optimization - avoid crawling assets
+Disallow: /assets/
+Disallow: /_next/
+Disallow: /favicon.ico
