@@ -1,104 +1,141 @@
-# Portfolio Adrien Chretien
+# Portfolio Adrien Chrétien - Développeur Full-Stack Java EE & React
 
-Portfolio personnel moderne développé avec React et Tailwind CSS, présentant mon expertise en développement Full-Stack avec une spécialisation en Java EE et React. Ce projet démontre mes compétences techniques à travers une interface élégante inspirée de principes de design contemporains.
+Portfolio professionnel développé avec React et Tailwind CSS, démontrant mon expertise en développement Full-Stack avec 3 ans d'expérience en applications métier. Ce projet illustre ma maîtrise technique à travers une interface moderne optimisée pour les performances et l'accessibilité.
 
-## 🎯 Aperçu du projet
+## 🎯 À propos du projet
 
-Ce portfolio présente mon parcours professionnel de développeur Full-Stack avec 3 ans d'expérience en applications métier critiques. Il met en avant ma double expertise : maintenance et modernisation d'applications Java EE existantes, ainsi que création de nouvelles interfaces avec React et les technologies modernes.
+Portfolio personnel d'Adrien Chrétien, développeur Full-Stack spécialisé en applications métier critiques. Le site présente mon expertise double : modernisation d'applications Java EE legacy et développement d'interfaces React modernes.
 
-### Caractéristiques principales
+**Voir le portfolio en ligne :** [adrienchretien.dev](https://adrienchretien.dev)
 
-- **Design responsive** avec animations fluides et interactions sophistiquées
-- **Architecture modulaire** pour une maintenance et évolution facilitées  
-- **Performance optimisée** avec Vite pour des temps de chargement rapides
-- **Accessibilité** respectant les standards WCAG pour une expérience inclusive
-- **SEO optimisé** pour une visibilité maximale en ligne
+### Fonctionnalités principales
 
-## 🚀 Technologies utilisées
+- **Interface responsive** avec animations fluides et micro-interactions
+- **Architecture React modulaire** avec composants réutilisables
+- **SEO optimisé** avec méta-données dynamiques et sitemap
+- **Performance maximisée** grâce à Vite et optimisations techniques
+- **Accessibilité WCAG** pour une expérience utilisateur inclusive
+- **Formulaire de contact** fonctionnel via EmailJS
 
-### Frontend Core
-- **React 18** - Bibliothèque JavaScript moderne pour interfaces utilisateur
-- **Vite** - Outil de build ultra-rapide pour un développement efficace
-- **Tailwind CSS** - Framework CSS utilitaire pour un design système cohérent
+## 🛠 Stack technique
 
-### Styling et Design
-- **Configuration Tailwind personnalisée** - Palette de couleurs et composants sur-mesure
-- **Google Fonts** - Typographie professionnelle avec Jost et Inter
-- **Animations CSS** - Transitions fluides et effets interactifs élégants
+### Core Technologies
+- **React 18** - Interface utilisateur moderne avec hooks
+- **Vite** - Build tool rapide pour développement optimisé
+- **Tailwind CSS** - Framework CSS utilitaire avec design system custom
+- **React Router** - Navigation SPA avec URLs propres pour le SEO
 
-### Communication et Contact
-- **EmailJS** - Service de messagerie pour formulaire de contact sans backend
-- **React Icons** - Bibliothèque d'icônes moderne et complète
+### Styling & UX
+- **Configuration Tailwind personnalisée** - Palette couleurs portfolio
+- **Google Fonts** (Jost, Inter) - Typographie professionnelle
+- **Animations CSS** - Transitions fluides et interactions élégantes
+- **Intersection Observer** - Révélations d'éléments au scroll
 
-### Outils de développement
-- **ESLint** - Analyse statique de code pour maintenir la qualité
-- **PostCSS** - Traitement CSS avancé avec Autoprefixer
-- **Git** - Versioning professionnel avec historique détaillé
+### Communication
+- **EmailJS** - Service de messagerie sans backend
+- **React Icons** - Bibliothèque d'icônes complète
 
-## 📋 Prérequis système
+### Outils qualité
+- **ESLint** - Linting pour qualité de code
+- **PostCSS + Autoprefixer** - Compatibilité CSS multi-navigateurs
 
-Avant d'installer ce projet, assurez-vous d'avoir les outils suivants installés sur votre système :
+## 🚀 Installation et développement
 
-- **Node.js** version 18.0 ou supérieure (recommandé : version LTS)
-- **npm** version 9.0 ou supérieure (inclus avec Node.js)
-- **Git** pour le clonage et versioning du projet
-
-Vérifiez vos versions avec ces commandes :
+### Prérequis
 ```bash
-node --version    # Doit afficher v18.0.0 ou supérieur
-npm --version     # Doit afficher 9.0.0 ou supérieur  
-git --version     # Doit afficher la version de Git installée
-
-## Installation et lancement
-
-Clonez le projet et installez les dépendances :
-
-git clone https://github.com/votre-username/portfolio-adrien-chretien.git
-cd portfolio-adrien-chretien
-npm install
-npm run dev
-npm run build    # Build de production
-npm run preview  # Aperçu du build de production
+node --version    # v18.0.0 minimum
+npm --version     # v9.0.0 minimum
+git --version     # Dernière version stable
 ```
 
-### Extensions Visual Studio Code recommandées
-Installez ces extensions pour optimiser votre développement :
-Pour React :
+### Installation
+```bash
+# Cloner le repository
+git clone https://github.com/Adrien222/portfolio-adrien-chretien.git
+cd portfolio-adrien-chretien
 
-ES7+ React/Redux/React-Native snippets
-Auto Rename Tag
-Bracket Pair Colorizer 2
-JavaScript (ES6) code snippets
+# Installer les dépendances
+npm install
 
-Pour Tailwind CSS :
+# Lancer en développement
+npm run dev
 
-Tailwind CSS IntelliSense
-Headwind
-PostCSS Language Support
+# Build production
+npm run build
 
-Productivité :
+# Preview du build
+npm run preview
+```
 
-Prettier - Code formatter
-Auto Close Tag
-Path Intellisense
-GitLens
+### Configuration environnement
+Créez un fichier `.env.local` pour EmailJS :
+```
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
-Qualité de code :
+## 📂 Structure du projet
 
-ESLint
-Error Lens
+```
+src/
+├── components/          # Composants React réutilisables
+├── data/               # Configuration et données du portfolio
+├── hooks/              # Hooks personnalisés (animations, etc.)
+├── assets/             # Images et ressources statiques
+└── styles/             # Styles globaux et configuration Tailwind
+```
 
-Bonus :
+## 🎨 Extensions VS Code recommandées
 
-Thunder Client
-Material Icon Theme
+**React/JavaScript :**
+- ES7+ React/Redux/React-Native snippets
+- Auto Rename Tag
+- JavaScript (ES6) code snippets
 
-Technologies utilisées
+**Tailwind CSS :**
+- Tailwind CSS IntelliSense
+- Headwind (tri automatique des classes)
+- PostCSS Language Support
 
-React 18 + Vite
-Tailwind CSS
-EmailJS (formulaire de contact)
-React Icons
+**Qualité & Productivité :**
+- Prettier - Code formatter
+- ESLint
+- Error Lens
+- GitLens
+- Auto Close Tag
 
+## 🔧 Scripts disponibles
 
-Développé par Adrien Chretien
+```bash
+npm run dev         # Serveur de développement
+npm run build       # Build de production
+npm run preview     # Preview du build
+npm run lint        # Vérification ESLint
+```
+
+## 📈 Optimisations SEO
+
+- Méta-données dynamiques par page/section
+- Sitemap.xml automatique
+- URLs propres avec React Router
+- Données structurées JSON-LD
+- Open Graph et Twitter Cards optimisés
+
+## 🚀 Déploiement
+
+Le projet est configuré pour Vercel avec support React Router :
+- Fichier `vercel.json` inclus pour les redirections SPA
+- Build automatique sur push vers main
+- URLs propres fonctionnelles en production
+
+## 📧 Contact
+
+**Adrien Chrétien** - Développeur Full-Stack
+- Email : adrienchretien2002@gmail.com
+- LinkedIn : [Profil LinkedIn](https://linkedin.com/in/adrien-chretien-b0408a223)
+- Portfolio : [adrienchretien.dev](https://adrienchretien.dev)
+
+---
+
+Développé par Adrien Chrétien | © 2025
