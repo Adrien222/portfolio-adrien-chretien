@@ -9,6 +9,7 @@ import ApproachSection from './components/ApproachSection';
 import SkillsSection from './components/SkillsSection';
 import RealizationsSection from './components/RealizationsSection';
 import ContactSection from './components/ContactSection';
+import SEOHead from './components/SEOHead';
 
 /**
  * App - Composant racine avec hook useScrollReveal et vraies données
@@ -101,41 +102,44 @@ function App() {
   }), [appState.activeSection]);
 
   return (
-    <div className="min-h-screen">
-      
-      {/* Overlay dynamique qui devient de plus en plus sombre au scroll */}
-      <div 
-        className="background-overlay"
-        style={{ opacity: overlayOpacity }}
-      />
-      
-      {/* Contenu principal au-dessus de l'overlay */}
-      <div className="main-content">
+      <div className="min-h-screen">
         
-        {/* Header - Navigation flottante */}
-        <Header {...headerProps} />
+        {/* SEO DYNAMIQUE - Titre et meta-données changent selon la section */}
+        <SEOHead activeSection={appState.activeSection} />
         
-        <main className="pt-8">
+        {/* Overlay dynamique qui devient de plus en plus sombre au scroll */}
+        <div 
+          className="background-overlay"
+          style={{ opacity: overlayOpacity }}
+        />
+        
+        {/* Contenu principal au-dessus de l'overlay */}
+        <div className="main-content">
           
-          {/* Section Hero avec photo et présentation */}
-          <HeroSection {...heroProps} />
+          {/* Header - Navigation flottante */}
+          <Header {...headerProps} />
           
-          {/* Section Mon approche avec contenu réel */}
-          <ApproachSection {...approachProps} />
-          
-          {/* Section Mon savoir-faire avec cartes compétences */}
-          <SkillsSection {...skillsProps} />
-          
-          {/* Section Mes réalisations avec cartes projets et animations */}
-          <RealizationsSection {...realizationsProps} />
+          <main className="pt-8">
+            
+            {/* Section Hero avec photo et présentation */}
+            <HeroSection {...heroProps} />
+            
+            {/* Section Mon approche avec contenu réel */}
+            <ApproachSection {...approachProps} />
+            
+            {/* Section Mon savoir-faire avec cartes compétences */}
+            <SkillsSection {...skillsProps} />
+            
+            {/* Section Mes réalisations avec cartes projets et animations */}
+            <RealizationsSection {...realizationsProps} />
 
-          {/* Section Contact avec formulaire fonctionnel */}
-          <ContactSection />
+            {/* Section Contact avec formulaire fonctionnel */}
+            <ContactSection />
+            
+          </main>
           
-        </main>
-        
+        </div>
       </div>
-    </div>
   );
 }
 
