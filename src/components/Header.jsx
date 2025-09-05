@@ -7,24 +7,20 @@ import HamburgerButton from './HamburgerButton';
 import MobileMenu from './MobileMenu';
 
 /**
- * Header - Version optimisée sans duplication
+ * Header -
+ * - Navigation fluide avec scroll animations
+ * - URLs qui changent pour le SEO
+ * - Préserve l'expérience utilisateur originale
  */
 const Header = memo(({ activeSection, onSectionChange, onContactClick }) => {
   
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // Handlers optimisés avec useCallback
+  // Handlers optimisés avec useCallback - CONSERVE le scroll fluide
   const handleNavigate = useCallback((e, sectionId) => {
+    e.preventDefault();
     onSectionChange(sectionId);
     setIsMobileMenuOpen(false);
-    
-    const target = document.getElementById(sectionId);
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
   }, [onSectionChange]);
 
   const handleContactClick = useCallback((e) => {
@@ -37,7 +33,6 @@ const Header = memo(({ activeSection, onSectionChange, onContactClick }) => {
     e.preventDefault();
     onSectionChange('home');
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [onSectionChange]);
 
   const toggleMobileMenu = useCallback(() => {
